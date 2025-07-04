@@ -53,7 +53,7 @@ def calcular_fuerzas_lennard_jones(posiciones, L, epsilon, sigma, r_cutoff):
                 # Términos para la fuerza de Lennard-Jones
                 sr6 = (sigma/r_magnitud)**6
                 sr12 = sr6**2
-                fuerza_magnitud = 24.0 * epsilon * (2*sr12 - sr6) / r_magnitud
+                fuerza_magnitud = -24.0 * epsilon * (2*sr12 - sr6) / r_magnitud
                 
                 # Componentes de la fuerza
                 fuerza_vectorial = fuerza_magnitud * r_ij / r_magnitud
