@@ -1,0 +1,126 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Parámetros
+L = 10              # Tamaño de la caja
+sigma = 1.0        # Diámetro de la partícula
+epsilon = 1.0      # Profundidad del pozo potencial de Lennard-Jones
+v = 1              # Velocidad base
+dt = 0.05          # Paso de tiempo
+num_pasos = 100    # Número de pasos de la simulación
+masa = 1.0         # Masa de las partículas
+r_cutoff = 3 * sigma  # Distancia de corte para las interacciones
+
+# Número de partículas
+num_particulas = 2
+
+# Generamos posiciones iniciales
+posiciones = np.zeros((num_pasos + 1, num_particulas, 2))
+velocidades = np.zeros((num_particulas, 2))
+fuerzas = np.zeros((num_particulas, 2))
+
+# Posición inicial de la primera partícula
+posiciones[0, 0] = np.random.rand(2) * L
+
+# Colocar la segunda partícula a una distancia de 2*sigma de la primera
+theta = np.random.rand() * 2 * np.pi
+posiciones[0, 1, 0] = (posiciones[0, 0, 0] + 2 * sigma * np.cos(theta)) % L
+posiciones[0, 1, 1] = (posiciones[0, 0, 1] + 2 * sigma * np.sin(theta)) % L
+
+# Velocidades iniciales aleatorias
+thetas = np.random.rand(num_particulas) * 2 * np.pi
+velocidades[:, 0] = v * np.cos(thetas)
+velocidades[:, 1] = v * np.sin(thetas)
+
+# Función para calcular todas las distancias y fuerzas entre partículas
+def calcular_fuerzas_lennard_jones(posiciones, L, epsilon, sigma, r_cutoff):
+    # Array para almacenar fuerzas
+    fuerzas = np.zeros((num_particulas, 2))
+    
+    # Para cada par de partículas
+    for i in range(num_particulas):
+        for j in range(i+1, num_particulas):
+            # Vector diferencia con condiciones periódicas
+            r_ij = posiciones[j] - posiciones[i]
+            # Aplicar condiciones periódicas
+            r_ij = r_ij - L * np.round(r_ij / L)
+            
+            # Magnitud de la distancia
+            r_magnitud = np.sqrt(np.sum(r_ij**2))
+            
+            if 0 < r_magnitud < r_cutoff:
+                # Términos para la fuerza de Lennard-Jones
+                sr6 = (sigma/r_magnitud)**6
+                sr12 = sr6**2
+                fuerza_magnitud = 24.0 * epsilon * (2*sr12 - sr6) / r_magnitud
+                
+                # Componentes de la fuerza
+                fuerza_vectorial = fuerza_magnitud * r_ij / r_magnitud
+                
+                # Sumar fuerzas (acción y reacción)
+                fuerzas[i] += fuerza_vectorial
+                fuerzas[j] -= fuerza_vectorial
+    
+    return fuerzas
+
+# Calcular fuerzas iniciales
+fuerzas = calcular_fuerzas_lennard_jones(posiciones[0], L, epsilon, sigma, r_cutoff)
+
+# Simulación usando integración de Verlet
+for paso in range(num_pasos):
+    # Actualizar posiciones usando velocidades y fuerzas actuales
+    posiciones[paso+1] = posiciones[paso] + velocidades * dt + 0.5 * fuerzas / masa * dt**2
+    
+    # Aplicar condiciones periódicas de contorno
+    posiciones[paso+1] = posiciones[paso+1] % L
+    
+    # Calcular nuevas fuerzas
+    fuerzas_nuevas = calcular_fuerzas_lennard_jones(posiciones[paso+1], L, epsilon, sigma, r_cutoff)
+    
+    # Actualizar velocidades
+    velocidades += 0.5 * (fuerzas + fuerzas_nuevas) / masa * dt
+    
+    # Actualizar fuerzas para el próximo paso
+    fuerzas = fuerzas_nuevas
+
+# Configuración de la animación
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.set_xlim(0, L)
+ax.set_ylim(0, L)
+ax.set_xlabel('Posición x')
+ax.set_ylabel('Posición y')
+ax.set_title('Simulación con potencial de Lennard-Jones')
+ax.grid(True)
+
+# Colores para las partículas
+colores = ['m', 'y']
+
+# Crear líneas y marcadores para cada partícula
+lineas = [ax.plot([], [], '--', color=color, alpha=0.5)[0] for color in colores]
+marcadores = [ax.plot([], [], f'{color}o', markersize=8)[0] for color in colores]
+
+# Inicialización de la animación
+def init():
+    for linea, marcador in zip(lineas, marcadores):
+        linea.set_data([], [])
+        marcador.set_data([], [])
+    return lineas + marcadores
+
+# Actualización de cada frame
+def update(frame):
+    for i, (linea, marcador) in enumerate(zip(lineas, marcadores)):
+        # Extraer posiciones históricas para la estela
+        inicio = max(0, frame-20)
+        linea.set_data(posiciones[inicio:frame+1, i, 0], posiciones[inicio:frame+1, i, 1])
+        # Posición actual para el marcador
+        marcador.set_data([posiciones[frame, i, 0]], [posiciones[frame, i, 1]])
+    return lineas + marcadores
+
+# Crear la animación
+ani = FuncAnimation(fig, update, frames=num_pasos+1, init_func=init, blit=True, interval=50, repeat=True)
+
+plt.show()
+
+# Guardar la animación
+ani.save('Lennard_Jones_Optimizado.gif', writer='pillow', fps=20)
