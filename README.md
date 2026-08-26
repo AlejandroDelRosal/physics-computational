@@ -1,6 +1,6 @@
 # Physics Computational
 
-Simulaciones y métodos numéricos en física computacional — mecánica cuántica, sistemas caóticos, dinámica molecular y Monte Carlo. Parte del [portafolio híbrido](https://github.com/AlejandroDelRosal/Portafolio) de Manuel Alejandro Del Rosal (física + ciencia de datos + finanzas + medicina).
+Simulaciones y métodos numéricos en física computacional: mecánica cuántica, sistemas caóticos, dinámica molecular y Monte Carlo. Parte del [portafolio híbrido](https://github.com/AlejandroDelRosal/Portafolio) de Manuel Alejandro Del Rosal (física, ciencia de datos, finanzas, medicina).
 
 ## Contenido actual
 
@@ -21,10 +21,10 @@ Simulaciones y métodos numéricos en física computacional — mecánica cuánt
 - [ ] Solvers de ecuaciones diferenciales parciales (PDEs)
 - [ ] Cruce con ML: red neuronal MDN para galaxias (ver [Tesis-red-neuronal-MDN-galaxias](https://github.com/AlejandroDelRosal/Tesis-red-neuronal-MDN-galaxias))
 
-## Cómo contribuir (a mí mismo)
+## Convenciones
 
-Todo cambio entra por PR desde una rama `feat/<descripcion>`, con conventional commits (`feat:`, `fix:`, `docs:`, `research:`). Ver [CONTRIBUTING implícito en CODEOWNERS](.github/CODEOWNERS).
+Todo cambio entra por PR desde una rama `feat/<descripcion>`, con conventional commits (`feat:`, `fix:`, `docs:`, `research:`).
 
 ## Licencia
 
-MIT — ver [LICENSE](LICENSE).
+MIT. Ver [LICENSE](LICENSE).
