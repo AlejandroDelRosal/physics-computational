@@ -5,3 +5,4 @@ Format based on Keep a Changelog (https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 ### Added
 - Initial repository structure.
+- General relativity and quasar black hole mass analysis (Schwarzschild and Kerr metrics, virial mass estimation, validated against the Shen et al. 2011 SDSS DR7 catalog and Event Horizon Telescope shadow measurements).
