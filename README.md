@@ -8,6 +8,7 @@ Numerical methods and simulations in computational physics: quantum mechanics, c
 |---|---|
 | [`black-holes-and-quasars/`](black-holes-and-quasars/) | General relativity (Schwarzschild, Kerr) and supermassive black hole demographics from the SDSS DR7 quasar catalog, validated against Event Horizon Telescope shadow measurements |
 | [`particle-physics-dimuon-spectrum/`](particle-physics-dimuon-spectrum/) | Dimuon resonance spectrum from real CMS LHC collision data, with a Z boson mass and width fit validated against PDG values |
+| [`topological-field-theory/`](topological-field-theory/) | Ginzburg-Landau vortices from a nonlinear PDE, classified by the first homotopy group of U(1) and validated against the Kosterlitz-Thouless energy scaling law |
 | [`quantum-mechanics/`](quantum-mechanics/) | Schrodinger equation: hydrogen atom, potential wells, harmonic oscillator |
 | [`chaotic-dynamics/`](chaotic-dynamics/) | Driven damped pendulum, Poincare sections |
 | [`statistical-mechanics/`](statistical-mechanics/) | 2D Ising model, Monte Carlo sampling |
@@ -18,5 +19,5 @@ Numerical methods and simulations in computational physics: quantum mechanics, c
 ## Roadmap
 
 - [ ] N-body simulations
-- [ ] Nonlinear PDEs, topological field theory
+- [ ] Partial differential equation solvers beyond the Ginzburg-Landau case (wave equation, reaction-diffusion)
 - [ ] Machine learning crossover: mixture density network for galaxy modeling (see [Tesis-red-neuronal-MDN-galaxias](https://github.com/AlejandroDelRosal/Tesis-red-neuronal-MDN-galaxias))
