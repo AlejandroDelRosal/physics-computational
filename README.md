@@ -1,30 +1,22 @@
 # Physics Computational
 
-Simulaciones y métodos numéricos en física computacional — mecánica cuántica, sistemas caóticos, dinámica molecular y Monte Carlo. Parte del [portafolio híbrido](https://github.com/AlejandroDelRosal/Portafolio) de Manuel Alejandro Del Rosal (física + ciencia de datos + finanzas + medicina).
+Numerical methods and simulations in computational physics: quantum mechanics, chaotic systems, molecular dynamics, and Monte Carlo methods. Part of the [portfolio](https://github.com/AlejandroDelRosal/Portafolio) of Manuel Alejandro Del Rosal.
 
-## Contenido actual
+## Contents
 
-| Script | Tema |
+| Script | Topic |
 |---|---|
-| `hydrogen-matrix-method.py`, `hydrogen-radial-wavefunctions.py` | Átomo de hidrógeno, funciones de onda radiales |
-| `finite-potential-well-schrodinger.py`, `quantum-double-well-wavefunction.py` | Ecuación de Schrödinger, pozos de potencial |
-| `harmonic-oscillator-numerical.py` | Oscilador armónico cuántico |
-| `chaotic-pendulum-poincare.py`, `Pendulo_Poncaire.py` | Caos determinista, secciones de Poincaré |
-| `ising-model-montecarlo.py`, `ising-model-energy-heat-capacity.py` | Modelo de Ising, Monte Carlo estadístico |
-| `lennard-jones-simulation.py`, `lennard-jones-bound-states.py` | Dinámica molecular, potencial de Lennard-Jones |
-| `simulated-annealing-tsp.py` | Optimización por recocido simulado |
-| `projectile-motion-with-and-without-air-resistance.py` | Mecánica clásica, resistencia del aire |
+| `hydrogen-matrix-method.py`, `hydrogen-radial-wavefunctions.py` | Hydrogen atom, radial wavefunctions |
+| `finite-potential-well-schrodinger.py`, `quantum-double-well-wavefunction.py` | Schrodinger equation, potential wells |
+| `harmonic-oscillator-numerical.py` | Quantum harmonic oscillator |
+| `chaotic-pendulum-poincare.py`, `Pendulo_Poncaire.py` | Deterministic chaos, Poincare sections |
+| `ising-model-montecarlo.py`, `ising-model-energy-heat-capacity.py` | Ising model, statistical Monte Carlo |
+| `lennard-jones-simulation.py`, `lennard-jones-bound-states.py` | Molecular dynamics, Lennard-Jones potential |
+| `simulated-annealing-tsp.py` | Simulated annealing optimization |
+| `projectile-motion-with-and-without-air-resistance.py` | Classical mechanics, air resistance |
 
 ## Roadmap
 
-- [ ] N-body / simulaciones astrofísicas
-- [ ] Solvers de ecuaciones diferenciales parciales (PDEs)
-- [ ] Cruce con ML: red neuronal MDN para galaxias (ver [Tesis-red-neuronal-MDN-galaxias](https://github.com/AlejandroDelRosal/Tesis-red-neuronal-MDN-galaxias))
-
-## Cómo contribuir (a mí mismo)
-
-Todo cambio entra por PR desde una rama `feat/<descripcion>`, con conventional commits (`feat:`, `fix:`, `docs:`, `research:`). Ver [CONTRIBUTING implícito en CODEOWNERS](.github/CODEOWNERS).
-
-## Licencia
-
-MIT — ver [LICENSE](LICENSE).
+- [ ] N-body and astrophysical simulations
+- [ ] Partial differential equation (PDE) solvers
+- [ ] Machine learning crossover: mixture density network for galaxy modeling (see [Tesis-red-neuronal-MDN-galaxias](https://github.com/AlejandroDelRosal/Tesis-red-neuronal-MDN-galaxias))
