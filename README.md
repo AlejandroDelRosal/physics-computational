@@ -7,6 +7,7 @@ Numerical methods and simulations in computational physics: quantum mechanics, c
 | Project | Topic |
 |---|---|
 | [`black-holes-and-quasars/`](black-holes-and-quasars/) | General relativity (Schwarzschild, Kerr) and supermassive black hole demographics from the SDSS DR7 quasar catalog, validated against Event Horizon Telescope shadow measurements |
+| [`particle-physics-dimuon-spectrum/`](particle-physics-dimuon-spectrum/) | Dimuon resonance spectrum from real CMS LHC collision data, with a Z boson mass and width fit validated against PDG values |
 | [`quantum-mechanics/`](quantum-mechanics/) | Schrodinger equation: hydrogen atom, potential wells, harmonic oscillator |
 | [`chaotic-dynamics/`](chaotic-dynamics/) | Driven damped pendulum, Poincare sections |
 | [`statistical-mechanics/`](statistical-mechanics/) | 2D Ising model, Monte Carlo sampling |
